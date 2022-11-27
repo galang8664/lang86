@@ -4,7 +4,7 @@ env:
     bot_api: "ENCRYPTED[!c0f88bf2c288da068ab3447fff1b8d49e19606622e81d1a1e955420d56398bfd15cbb7db4f200b01bf9b957de9a459ea!]"
 
 task:
-  name: test
+  name: Test
   skip: $CIRRUS_BRANCH == 'main'
   only_if: $CIRRUS_REPO_OWNER == 'galang8664'
   timeout_in: 2m
