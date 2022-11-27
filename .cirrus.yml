@@ -6,7 +6,7 @@ env:
 task:
   name: Test
   skip: $CIRRUS_BRANCH == 'main'
-  only_if: $CIRRUS_REPO_OWNER == 'galang8664'
+  only_if: $CIRRUS_REPO_OWNER == 'lang'
   timeout_in: 2m
   persistent_worker:
     labels:
@@ -44,7 +44,7 @@ task:
 task:
   name: Build
   skip: $CIRRUS_BRANCH == 'main'
-  only_if: $CIRRUS_REPO_OWNER == 'galang8664'
+  only_if: $CIRRUS_REPO_OWNER == 'lang'
   depends_on:
     - Test
   timeout_in: 4h
@@ -218,7 +218,7 @@ task:
 task:
   name: Post Build
   skip: $CIRRUS_BRANCH == 'main'
-  only_if: $CIRRUS_REPO_OWNER == 'galang8664'
+  only_if: $CIRRUS_REPO_OWNER == 'lang'
   skip_notifications: true
   depends_on:
     - Build
