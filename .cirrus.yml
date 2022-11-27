@@ -1,12 +1,12 @@
 env:
     CIRRUS_CLONE_DEPTH: 1
     BUILD_HOSTNAME: "cirrus-ci.org"
-    bot_api: "ENCRYPTED[d5f8289d835b201789b2b31e728d0cd82a100f1b47ddec69dd6ba49a3712fcfa2719b220fc6a8894865df517a78332ca]"
+    bot_api: "ENCRYPTED[f9f7b98d2283c3d37f19abf05ff04da4f87d8c3acd2ceb2848bf6736b9c3fd13829249397447f83a93edb6b1714f9da5]"
 
 task:
   name: Test
   skip: $CIRRUS_BRANCH == 'main'
-  only_if: $CIRRUS_REPO_OWNER == 'ROM-builders'
+  only_if: $CIRRUS_REPO_OWNER == 'lang'
   timeout_in: 2m
   persistent_worker:
     labels:
@@ -44,7 +44,7 @@ task:
 task:
   name: Build
   skip: $CIRRUS_BRANCH == 'main'
-  only_if: $CIRRUS_REPO_OWNER == 'ROM-builders'
+  only_if: $CIRRUS_REPO_OWNER == 'lang'
   depends_on:
     - Test
   timeout_in: 4h
@@ -218,7 +218,7 @@ task:
 task:
   name: Post Build
   skip: $CIRRUS_BRANCH == 'main'
-  only_if: $CIRRUS_REPO_OWNER == 'ROM-builders'
+  only_if: $CIRRUS_REPO_OWNER == 'lang'
   skip_notifications: true
   depends_on:
     - Build
